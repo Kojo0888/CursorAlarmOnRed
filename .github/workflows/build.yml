@@ -1,0 +1,15 @@
+name: build
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - run: dotnet test tests/CursorAlarmOnRed.Tests
+      - run: dotnet build src/CursorAlarmOnRed -c Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CursorAlarmOnRed
+          path: src/CursorAlarmOnRed/bin/Release/net48/CursorAlarmOnRed.exe

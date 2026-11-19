@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>CursorAlarmOnRed</AssemblyName>
+    <RootNamespace>CursorAlarmOnRed</RootNamespace>
+    <UseWindowsForms>false</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <DebugType>none</DebugType>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Nullable>disable</Nullable>
+    <GenerateSupportedRuntime>false</GenerateSupportedRuntime>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+</Project>

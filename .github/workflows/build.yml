@@ -1,5 +1,11 @@
 name: build
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches: ['**']
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: windows-latest
@@ -13,3 +19,9 @@ jobs:
         with:
           name: CursorAlarmOnRed
           path: src/CursorAlarmOnRed/bin/Release/net48/CursorAlarmOnRed.exe
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: src/CursorAlarmOnRed/bin/Release/net48/CursorAlarmOnRed.exe
+          generate_release_notes: true
